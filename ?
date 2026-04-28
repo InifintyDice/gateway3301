@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>3301</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        #terminal {
+            width: 80%;
+            max-width: 600px;
+        }
+        input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #00FF00;
+            color: #00FF00;
+            font-family: inherit;
+            font-size: 1.2rem;
+            outline: none;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .glitch {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px #00FF00;
+        }
+    </style>
+</head>
+<body>
+
+<div id="terminal">
+    <div class="glitch">SYSTEM_ACCESS_POINT</div>
+    <p>Введите ключ для получения доступа к пакету данных...</p>
+    <input type="text" id="pass" autofocus placeholder="...">
+</div>
+
+<script>
+    const input = document.getElementById('pass');
+    input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            const val = input.value.toUpperCase().trim();
+            
+            if (val === 'ПРОМЕТЕЙ') {
+                // Создаем невидимую ссылку для мгновенного скачивания
+                const link = document.createElement('a');
+                link.href = 'https://www.dropbox.com/scl/fi/n13ksi7adq3xsqgbmwld1/dont-see.png?rlkey=t917eaoiyz1p7bguz2ln5sw2d&st=04ux0yqt&dl=1'; // Замени на прямую ссылку (например с dl=1)
+                link.setAttribute('download', 'data_packet.wav'); 
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                alert('ACCESS GRANTED. DOWNLOADING...');
+            } else {
+                alert('ACCESS DENIED. INCORRECT KEY.');
+                input.value = '';
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
